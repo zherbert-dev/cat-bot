@@ -115,8 +115,6 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 	}
 
 	if m.Content == "!gophers" {
-		fmt.Println("running123")
-
 		//Call the KuteGo API and display the list of available Gophers
 		response, err := http.Get(KuteGoAPIURL + "/gophers/")
 		if err != nil {
