@@ -19,6 +19,9 @@ var (
 	Token string
 )
 
+// note that this server does not seem to currently be running.
+// So the "gopher" style commands will report an error and not
+// respond to the user
 const KuteGoAPIURL = "https://kutego-api-xxxxx-ew.a.run.app"
 
 func init() {
