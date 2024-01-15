@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"os"
 	"os/signal"
+	"strings"
 	"syscall"
 
 	"github.com/bwmarrin/discordgo"
@@ -86,6 +87,18 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		} else {
 			fmt.Println("Error: Can't get Cat! :-(")
 		}
+	}
+
+	if strings.Contains(m.Content, "!catsay") {
+		cat, err := os.ReadFile("ascii.txt")
+		if err != nil {
+			fmt.Println(err)
+		}
+
+		message := m.Content[8:]
+		content := message + "\n" + string(cat)
+
+		s.ChannelMessageSend(m.ChannelID, content)
 	}
 
 	if m.Content == "!hello" {
