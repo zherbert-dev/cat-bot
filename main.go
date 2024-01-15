@@ -91,6 +91,10 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		}
 	}
 
+	if m.Content == "!hello" {
+		fmt.Println("Hello there!")
+	}
+
 	if m.Content == "!random" {
 
 		//Call the KuteGo API and retrieve a random Gopher
