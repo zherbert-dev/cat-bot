@@ -92,7 +92,7 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 	}
 
 	if m.Content == "!hello" {
-		fmt.Println("Hello there!")
+		s.ChannelMessageSend(m.ChannelID, "Hello there!")
 	}
 
 	if m.Content == "!random" {
